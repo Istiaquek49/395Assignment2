@@ -8,6 +8,18 @@ Array.prototype.myEach = function (callback)
     return;  
 }
 
+//Map()
+Array.prototype.myMap = function (callbackFn)
+{
+    let newArray = [];
+    for (let i = 0; i < this.length; i++)//callback on each element
+    {
+        let counter = callbackFn(this[i], i , this);
+        newArray.push(counter);//pushes the element to the newArray
+    }
+    return newArray;
+}
+
 //Object.keys()
 function grabKeys(object)
 {
