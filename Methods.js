@@ -1,7 +1,9 @@
 //forEach()
-Array.prototype.myEach = function (callback) {
-    for (let i = 0; i < this.length; i++) {
-        callback(this[i], i, this);
+Array.prototype.myEach = function (callbackFn)
+{
+    for (let i = 0; i < this.length; i++)
+    {
+        callbackFn(this[i], i, this);
     }
     return;
 };
@@ -15,6 +17,19 @@ Array.prototype.myMap = function (callbackFn) {
         newArray.push(counter);//pushes the element to the newArray
     }
     return newArray;
+};
+
+//every()
+Array.prototype.myEvery = function (callbackFn)
+{
+    for (i = 0; i < this.length; i++)//goes through all elements
+    {
+        if (callbackFn(this[i]) == false)//if equal to false 
+        {
+            return false;//return false
+        }
+    }
+    return true;//otherwise is true
 };
 
 //push()
@@ -36,12 +51,12 @@ function grabKeys(object)
 };
 
 //object.values()
-function grabValues(callback)
+function grabValues(callbackFn)
 {
     let newArray = []//empty arry
     for (let items in callback)
     {
-      newArray.push(callback[items]);
+      newArray.push(callbackFn[items]);
     }
     return newArray;//returns the values of the key value pairs 
 };
