@@ -1,24 +1,28 @@
 //forEach()
-Array.prototype.myEach = function (callback)
-{
-    for (let i = 0; i < this.length; i++)
-    {
+Array.prototype.myEach = function (callback) {
+    for (let i = 0; i < this.length; i++) {
         callback(this[i], i, this);
     }
-    return;  
-}
+    return;
+};
 
 //Map()
-Array.prototype.myMap = function (callbackFn)
-{
+Array.prototype.myMap = function (callbackFn) {
     let newArray = [];
     for (let i = 0; i < this.length; i++)//callback on each element
     {
-        let counter = callbackFn(this[i], i , this);
+        let counter = callbackFn(this[i], i, this);
         newArray.push(counter);//pushes the element to the newArray
     }
     return newArray;
-}
+};
+
+//push()
+Array.prototype.myPush = function (ArrElement, plusElements)
+{
+    ArrElement[ArrElement.length] = plusElements;
+    return ArrElement.length;
+};
 
 //Object.keys()
 function grabKeys(object)
@@ -29,7 +33,7 @@ function grabKeys(object)
         arr.push(element); 
     }
     return arr;//returns the keys of the key value pairs
-}
+};
 
 //object.values()
 function grabValues(callback)
