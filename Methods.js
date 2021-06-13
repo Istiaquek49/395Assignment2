@@ -32,6 +32,32 @@ Array.prototype.myEvery = function (callbackFn)
     return true;//otherwise is true
 };
 
+//includes()
+Array.prototype.myIncludes = function (markElement, findElement = 0)
+{
+    for (let i = findElement; i < this.length; i++)
+    {
+        if (this[i] === markElement)//if the exact same
+        {
+            return true;//yes it's in the array
+        }
+    }
+    return false;
+};
+
+//indexOf()
+Array.prototype.myIndexOf = function myIndexOf(markElement, findElement = 0)
+{
+    for (let i = findElement; i < this.length; i++)
+    {
+        if(this[i] === markElement)//if the exact same
+        {
+            return i;//return index when found 
+        }
+    }
+    return -1;//return -1 DNE
+}
+
 //push()
 Array.prototype.myPush = function (ArrElement, plusElements)
 {
