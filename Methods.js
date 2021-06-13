@@ -19,6 +19,33 @@ Array.prototype.myMap = function (callbackFn) {
     return newArray;
 };
 
+//filter()
+Array.prototype.myFilter = function (callbackFn)
+{
+    let newArray = [];
+    for (let i = 0; i < this.length; i++)
+    {
+        if (callbackFn(this[i]))
+        {
+            newArray.push(this[i]);
+        }
+    }
+    return newArray;
+};
+
+//some() aka any()
+Array.prototype.mySome = function (callback)//callbackFn not listed in parameters
+{
+    for (let i = 0; i < this.length; i++)
+    {
+        if (callback(this[i]))
+        {
+            return true;
+        }
+    }
+    return false;
+};
+
 //every()
 Array.prototype.myEvery = function (callbackFn)
 {
@@ -30,6 +57,20 @@ Array.prototype.myEvery = function (callbackFn)
         }
     }
     return true;//otherwise is true
+};
+
+//reduce()
+Array.prototype.myReduce = function (callbackFn, accumlator)
+{
+    if (accumlator == undefined)
+    {
+        accumlator = 0;
+    } 
+    for (let i =0; i < this.length; i++)
+    {
+        accumlator = callbackFn(accumlator,this[i],i,this);    
+    }
+    return accumlator;
 };
 
 //includes()
@@ -46,7 +87,7 @@ Array.prototype.myIncludes = function (markElement, findElement = 0)
 };
 
 //indexOf()
-Array.prototype.myIndexOf = function myIndexOf(markElement, findElement = 0)
+Array.prototype.myIndexOf = function (markElement, findElement = 0)
 {
     for (let i = findElement; i < this.length; i++)
     {
@@ -64,6 +105,19 @@ Array.prototype.myPush = function (ArrElement, plusElements)
     ArrElement[ArrElement.length] = plusElements;
     return ArrElement.length;
 };
+
+//lastIndexOf()
+Array.prototype.myLastIndexOf = function (markElement, findElement) 
+{
+    for (let i = markElement.length-1 ; i >= 0; i--)//starts from the back to the front
+    {
+        if(markElement[i] === findElement)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
 
 //Object.keys()
 function grabKeys(object)
